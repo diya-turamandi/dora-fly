@@ -10,6 +10,7 @@ let score = 0;
 let gameStarted = false;
 
 
+
 document.addEventListener("keydown", () => {
   if (!isGameOver) {
     if (!gameStarted) {
@@ -21,6 +22,26 @@ document.addEventListener("keydown", () => {
 
   }
 });
+
+const selectedChar = localStorage.getItem("doraemon");
+
+const characterImages = {
+  "doraemon-c": "img/dor2.png",
+  "poodup": "img/pooh.png",
+  "pookie":"img/kitty2.png",
+  "gogo":"img/nemu.png"
+};
+
+if (selectedChar && characterImages[selectedChar]) {
+  doraemon.style.backgroundImage = `url(${characterImages[selectedChar]})`;
+  doraemon.style.width = "120px";
+  doraemon.style.height = "120px";
+
+} else {
+  doraemon.style.backgroundImage = `url(img/dor2.png)`;
+}
+
+
 
 function createPipe() {
   const pipeTop = document.createElement("div");
